@@ -1,14 +1,14 @@
-- name: Set-up prompt
-  ansible.builtin.shell: set-prompt {{ tool_name}}
+- name: Setup prompt
+  ansible.builtin.shell: set-prompt {{ tool_name }}
 
 - name: Download repo file
   ansible.builtin.get_url:
-    url : https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+    url: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
     dest: /etc/yum.repos.d/hashicorp.repo
 
-- name: Install Vault 
+- name: Install Vault
   ansible.builtin.dnf:
-    name: Vault
+    name: vault
     state: installed
 
 - name: Copy Vault config
@@ -19,4 +19,10 @@
 - name: Start Vault
   ansible.builtin.systemd_service:
     state: started
-    enables: yes
+    enabled: yes
+    name: vault
+
+
+
+
+
