@@ -11,7 +11,7 @@
     name: Vault
     state: installed
 
-- name: Coopy Vault config
+- name: Copy Vault config
   ansible.builtin.template:
     src: vault.hcl
     dest: /etc/vault.d/vault.hcl

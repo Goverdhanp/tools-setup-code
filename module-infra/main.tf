@@ -36,11 +36,6 @@ resource "aws_vpc_security_group_egress_rule" "egress_allow_all" {
 
 
 
-
-
-
-
-
 resource "aws_instance" "tool" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
@@ -50,7 +45,6 @@ resource "aws_instance" "tool" {
     Name = var.name
   }
 }
-
 
 
 resource "aws_route53_record" "private" {
