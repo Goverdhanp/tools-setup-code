@@ -44,7 +44,7 @@ resource "aws_vpc_security_group_egress_rule" "egress_allow_all" {
 resource "aws_instance" "tool" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_route53_record.tool.id]
+  vpc_security_group_ids = [aws_security_group.tool.id]
 
   tags = {
     Name = var.name
